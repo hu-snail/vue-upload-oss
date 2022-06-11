@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "private": false,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve & node ./server/index.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@alicloud/sts-sdk": "^1.0.2",
+    "ali-oss": "^6.17.1",
+    "axios": "^0.27.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.9",
+    "express": "^4.18.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
