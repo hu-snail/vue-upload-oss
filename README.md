@@ -1,9 +1,6 @@
 # vue-upload-oss
 ## 前言
-原掘金文章[Vue前端直传至阿里云OSS（支持断点续传，分片上传，批量上传）](https://juejin.cn/post/7077751294223450143),因为没有完成版本，使用起来有些吃力，看到留言需要完整demo,今天抽空写了一份完整的源码
-
-## 源码地址
-[vue-upload-oss](https://github.com/hu-snail/vue-upload-oss),👏🏻欢迎start！！！
+原掘金文章[Vue前端直传至阿里云OSS（支持断点续传，分片上传，批量上传）](https://juejin.cn/post/7077751294223450143),因为没有完整版本，使用起来有些吃力，看到留言需要完整demo,今天抽空写了一份完整的源码
 
 ## 特性
 - 支持Vue2
