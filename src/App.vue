@@ -1,68 +1,78 @@
 <template>
-    <el-container class="container">
-      <el-header class="header">
-        <div class="left">
-          <img width="16" height="16" src="./assets/moon.svg" class="moon" alt="Active darkmode" />
-          <a href="/" class=""><p class="dark-transition dark:text-white text-blue-400 text-xl">hu-snail.dev</p></a>
+    <Layout>
+      <div class="btn-wrapper">
+        <el-button type="success" icon="el-icon-cloudy" @click="showForm = !showForm">上传测试</el-button>
+        <el-button type="primary" icon="el-icon-position">Github</el-button>
+      </div>
+      <div class="form-wrapper" v-if="showForm">
+        <el-alert
+          class="alert"
+          title="提示：纯前端静态测试页面，不收集数据，仅供您测试,请放心填写！！！"
+          type="info"
+          :closable="false"
+          show-icon>
+        </el-alert>
+        <el-form ref="form" :model="form" label-width="150px">
+          <el-form-item label="AccessKeyId">
+            <el-input v-model="form.AccessKeyId" placeholder="Please enter your AccessKeyId"></el-input>
+          </el-form-item>
+          <el-form-item label="AccessKeySecret">
+            <el-input v-model="form.AccessKeySecret" placeholder="Please enter your AccessKeySecret"></el-input>
+          </el-form-item>
+          <el-form-item label="stsToken">
+            <el-input v-model="form.SecurityToken" placeholder="Please enter your SecurityToken"></el-input>
+          </el-form-item>
+          <el-form-item label="bucket">
+            <el-input v-model="form.bucket" placeholder="Please enter your bucket"></el-input>
+          </el-form-item>
+          <el-form-item label="region">
+            <el-input v-model="form.region" placeholder="Please enter your region"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary">确 定</el-button>
+            <el-button>取 消</el-button>
+          </el-form-item>
+        </el-form>
         </div>
-      </el-header>
-      <el-main class="main">
-        <div class="main-head-wrapper">
-            <h2 class="h2-title"> vue-upload-oss </h2>
-            <div>
-              <h1 class="title">
-                A modern <span class="bg-clip-text	linear-gradient inverse text-fill-transparent">Vue2</span> 
-                <br/>
-                Collocation
-                <span class="bg-clip-text	linear-gradient inverse text-fill-transparent">Element-ui</span>  &
-                <span class="bg-clip-text	linear-gradient inverse text-fill-transparent">Ali-oss</span> 
-              </h1>
-            </div>
-        </div>
-      </el-main>
-    </el-container>
+    </Layout>
 </template>
 
 <script>
+import Layout from './layout'
 
 export default {
   name: 'App',
   components: {
+    Layout
+  },
+  data() {
+    return {
+      showForm: false,
+      form: {
+        AccessKeyId: '',
+        AccessKeySecret: '',
+        SecurityToken: '',
+        bucket: '',
+        region: ''
+      }
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 * {
   margin: 0;
   padding: 0;
 }
-.container {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* background: #151621;     */
-  height: 100vh;
+.btn-wrapper {
+  margin: 20px 0;
 }
-.header {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #ddd;
-}
-.header .left {
-  display: flex;
-  align-items: center;
-}
-.header .left .moon {
-  margin-right: 5px;
-  cursor: pointer;
-}
-.main-head-wrapper {
-  text-align: center;
-}
-.main-head-wrapper .h2-title {
-  padding: 10px;
+.form-wrapper {
+  width: 500px;
+  margin: 25px auto;
+  .alert {
+    margin-bottom: 10px;
+  }
 }
 </style>
